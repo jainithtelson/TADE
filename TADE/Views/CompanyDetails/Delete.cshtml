@@ -1,0 +1,169 @@
+﻿@model TADE.Models.CompanyDetail
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CompanyDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressLIne1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressLIne1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressLIne2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressLIne2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressLIne3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressLIne3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPerson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyLogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyLogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NatureofBusiness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NatureofBusiness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanySize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanySize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AboutTheCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AboutTheCompany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailedDescriptionAboutCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetailedDescriptionAboutCompany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

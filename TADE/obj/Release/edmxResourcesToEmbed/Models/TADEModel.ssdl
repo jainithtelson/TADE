@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TADEDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AnswerOptions">
+    <Key>
+      <PropertyRef Name="AnswerOptionsID" />
+    </Key>
+    <Property Name="AnswerOptionsID" Type="int" Nullable="false" />
+    <Property Name="ObjectiveTestID" Type="int" Nullable="false" />
+    <Property Name="AnswerOptionsDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AvailableDates">
+    <Key>
+      <PropertyRef Name="AvailableDatesId" />
+    </Key>
+    <Property Name="AvailableDatesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AvailableDate" Type="date" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="AvailableDatesHistory">
+    <Key>
+      <PropertyRef Name="AvailableDatesId" />
+    </Key>
+    <Property Name="AvailableDatesId" Type="int" Nullable="false" />
+    <Property Name="AvailableDate" Type="date" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="AvailableSeatsForSlots">
+    <Key>
+      <PropertyRef Name="AvailableSeatsForSlotsId" />
+    </Key>
+    <Property Name="AvailableSeatsForSlotsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AvailableDatesId" Type="int" />
+    <Property Name="SlotId" Type="int" />
+    <Property Name="TotalSeats" Type="int" />
+    <Property Name="RemainingSeats" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="CandidateDetails">
+    <Key>
+      <PropertyRef Name="CandidateId" />
+    </Key>
+    <Property Name="CandidateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExamId" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateOfBirth" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailApproved" Type="bit" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddressLine3" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DrivingLicenseNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="IPAddress" Type="nvarchar" MaxLength="150" />
+    <Property Name="PhotoPath" Type="nvarchar" MaxLength="150" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ExaminerId" Type="int" />
+    <Property Name="uniquetoken" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExamAttended" Type="bit" />
+    <Property Name="FrontCamera" Type="bit" />
+    <Property Name="BackCamera" Type="bit" />
+  </EntityType>
+  <EntityType Name="CandidateExamBookingDetails">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CandidateId" Type="int" Nullable="false" />
+    <Property Name="BookedDate" Type="datetime" />
+    <Property Name="SlotId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="CandidateVerification">
+    <Key>
+      <PropertyRef Name="VerificaitonId" />
+    </Key>
+    <Property Name="VerificaitonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CandidateId" Type="int" Nullable="false" />
+    <Property Name="Photo" Type="bit" Nullable="false" />
+    <Property Name="DrivingLicense" Type="bit" Nullable="false" />
+    <Property Name="FrontCamera" Type="bit" Nullable="false" />
+    <Property Name="Microphone" Type="bit" Nullable="false" />
+    <Property Name="BackCamera" Type="bit" Nullable="false" />
+    <Property Name="LipMovement" Type="bit" Nullable="false" />
+    <Property Name="EligibleForStartExam" Type="bit" Nullable="false" />
+    <Property Name="VerifiedBy" Type="int" Nullable="false" />
+    <Property Name="VerifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExaminerDetails">
+    <Key>
+      <PropertyRef Name="ExaminerId" />
+    </Key>
+    <Property Name="ExaminerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastCandidateAllocation" Type="date" />
+    <Property Name="CandidateAllocated" Type="bit" />
+    <Property Name="NumberofCandidatesAllocated" Type="int" />
+    <Property Name="Grade" Type="int" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="Emergency" Type="bit" />
+  </EntityType>
+  <EntityType Name="ExaminorAvailability">
+    <Key>
+      <PropertyRef Name="ExaminorId" />
+    </Key>
+    <Property Name="ExaminorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Availability" Type="bit" />
+  </EntityType>
+  <EntityType Name="ExamResults">
+    <Key>
+      <PropertyRef Name="ResultId" />
+    </Key>
+    <Property Name="ResultId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CandidateId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExamId" Type="int" Nullable="false" />
+    <Property Name="Score" Type="int" />
+    <Property Name="Grade" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Explanation" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ExamSlots">
+    <Key>
+      <PropertyRef Name="SlotId" />
+    </Key>
+    <Property Name="SlotId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SlotName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Timefrom" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimefromMinutes" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeTo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeToMinutes" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="ExamType">
+    <Key>
+      <PropertyRef Name="ExamId" />
+    </Key>
+    <Property Name="ExamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExamType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="LatestNews">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NewsScreenshotPath" Type="nvarchar" MaxLength="250" />
+    <Property Name="SourceLink" Type="nvarchar(max)" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ObjectiveTest">
+    <Key>
+      <PropertyRef Name="ObjectiveTestID" />
+    </Key>
+    <Property Name="ObjectiveTestID" Type="int" Nullable="false" />
+    <Property Name="Question" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="QuestionImage" Type="nvarchar" MaxLength="150" />
+    <Property Name="QuestionTypeId" Type="int" Nullable="false" />
+    <Property Name="CorrectAnswerID" Type="int" Nullable="false" />
+    <Property Name="Score" Type="int" />
+    <Property Name="Answered" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="ImageShow" Type="bit" />
+    <Property Name="AllowedTime" Type="int" />
+    <Property Name="Priority" Type="nvarchar" MaxLength="150" />
+    <Property Name="VideoLink" Type="nvarchar" MaxLength="150" />
+    <Property Name="VideoShow" Type="bit" />
+  </EntityType>
+  <EntityType Name="QuestionType">
+    <Key>
+      <PropertyRef Name="QuestionTypeId" />
+    </Key>
+    <Property Name="QuestionTypeId" Type="int" Nullable="false" />
+    <Property Name="QuestionType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Testimonials">
+    <Key>
+      <PropertyRef Name="TestimonialId" />
+    </Key>
+    <Property Name="TestimonialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CandidateId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="AddedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="VideoScore">
+    <Key>
+      <PropertyRef Name="ScoreID" />
+    </Key>
+    <Property Name="ScoreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VideoID" Type="int" Nullable="false" />
+    <Property Name="TimeInterval" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MouseClick" Type="nvarchar" MaxLength="50" />
+    <Property Name="KeyboardPress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Score" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="VideoType">
+    <Key>
+      <PropertyRef Name="VideoID" />
+    </Key>
+    <Property Name="VideoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VideoType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_AnswerOptions_ObjectiveTest">
+    <End Role="ObjectiveTest" Type="Self.ObjectiveTest" Multiplicity="1" />
+    <End Role="AnswerOptions" Type="Self.AnswerOptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectiveTest">
+        <PropertyRef Name="ObjectiveTestID" />
+      </Principal>
+      <Dependent Role="AnswerOptions">
+        <PropertyRef Name="ObjectiveTestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvailableSeatsForSlots_AvailableDates">
+    <End Role="AvailableDates" Type="Self.AvailableDates" Multiplicity="0..1" />
+    <End Role="AvailableSeatsForSlots" Type="Self.AvailableSeatsForSlots" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AvailableDates">
+        <PropertyRef Name="AvailableDatesId" />
+      </Principal>
+      <Dependent Role="AvailableSeatsForSlots">
+        <PropertyRef Name="AvailableDatesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvailableSeatsForSlots_ExamSlots">
+    <End Role="ExamSlots" Type="Self.ExamSlots" Multiplicity="0..1" />
+    <End Role="AvailableSeatsForSlots" Type="Self.AvailableSeatsForSlots" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamSlots">
+        <PropertyRef Name="SlotId" />
+      </Principal>
+      <Dependent Role="AvailableSeatsForSlots">
+        <PropertyRef Name="SlotId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CandidateDetails_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="CandidateDetails" Type="Self.CandidateDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CandidateDetails">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CandidateExamBookingDetails_CandidateDetails">
+    <End Role="CandidateDetails" Type="Self.CandidateDetails" Multiplicity="1" />
+    <End Role="CandidateExamBookingDetails" Type="Self.CandidateExamBookingDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CandidateDetails">
+        <PropertyRef Name="CandidateId" />
+      </Principal>
+      <Dependent Role="CandidateExamBookingDetails">
+        <PropertyRef Name="CandidateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CandidateExamBookingDetails_ExamSlots">
+    <End Role="ExamSlots" Type="Self.ExamSlots" Multiplicity="1" />
+    <End Role="CandidateExamBookingDetails" Type="Self.CandidateExamBookingDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamSlots">
+        <PropertyRef Name="SlotId" />
+      </Principal>
+      <Dependent Role="CandidateExamBookingDetails">
+        <PropertyRef Name="SlotId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CandidateVerification_CandidateDetails">
+    <End Role="CandidateDetails" Type="Self.CandidateDetails" Multiplicity="1" />
+    <End Role="CandidateVerification" Type="Self.CandidateVerification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CandidateDetails">
+        <PropertyRef Name="CandidateId" />
+      </Principal>
+      <Dependent Role="CandidateVerification">
+        <PropertyRef Name="CandidateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CandidateVerification_ExaminerDetails">
+    <End Role="ExaminerDetails" Type="Self.ExaminerDetails" Multiplicity="1" />
+    <End Role="CandidateVerification" Type="Self.CandidateVerification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExaminerDetails">
+        <PropertyRef Name="ExaminerId" />
+      </Principal>
+      <Dependent Role="CandidateVerification">
+        <PropertyRef Name="VerifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExaminerDetails_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="ExaminerDetails" Type="Self.ExaminerDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExaminerDetails">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExaminorAvailability_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="ExaminorAvailability" Type="Self.ExaminorAvailability" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExaminorAvailability">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExamResults_CandidateDetails">
+    <End Role="CandidateDetails" Type="Self.CandidateDetails" Multiplicity="1" />
+    <End Role="ExamResults" Type="Self.ExamResults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CandidateDetails">
+        <PropertyRef Name="CandidateId" />
+      </Principal>
+      <Dependent Role="ExamResults">
+        <PropertyRef Name="CandidateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExamResults_ExamType">
+    <End Role="ExamType" Type="Self.ExamType" Multiplicity="1" />
+    <End Role="ExamResults" Type="Self.ExamResults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamType">
+        <PropertyRef Name="ExamId" />
+      </Principal>
+      <Dependent Role="ExamResults">
+        <PropertyRef Name="ExamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LatestNews_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="LatestNews" Type="Self.LatestNews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LatestNews">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ObjectiveTest_QuestionType">
+    <End Role="QuestionType" Type="Self.QuestionType" Multiplicity="1" />
+    <End Role="ObjectiveTest" Type="Self.ObjectiveTest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionType">
+        <PropertyRef Name="QuestionTypeId" />
+      </Principal>
+      <Dependent Role="ObjectiveTest">
+        <PropertyRef Name="QuestionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Testimonials_CandidateDetails">
+    <End Role="CandidateDetails" Type="Self.CandidateDetails" Multiplicity="1" />
+    <End Role="Testimonials" Type="Self.Testimonials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CandidateDetails">
+        <PropertyRef Name="CandidateId" />
+      </Principal>
+      <Dependent Role="Testimonials">
+        <PropertyRef Name="CandidateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoScore_VideoType">
+    <End Role="VideoType" Type="Self.VideoType" Multiplicity="1" />
+    <End Role="VideoScore" Type="Self.VideoScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideoType">
+        <PropertyRef Name="VideoID" />
+      </Principal>
+      <Dependent Role="VideoScore">
+        <PropertyRef Name="VideoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TADEDBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnswerOptions" EntityType="Self.AnswerOptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AvailableDates" EntityType="Self.AvailableDates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AvailableDatesHistory" EntityType="Self.AvailableDatesHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AvailableSeatsForSlots" EntityType="Self.AvailableSeatsForSlots" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CandidateDetails" EntityType="Self.CandidateDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CandidateExamBookingDetails" EntityType="Self.CandidateExamBookingDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CandidateVerification" EntityType="Self.CandidateVerification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExaminerDetails" EntityType="Self.ExaminerDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExaminorAvailability" EntityType="Self.ExaminorAvailability" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExamResults" EntityType="Self.ExamResults" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExamSlots" EntityType="Self.ExamSlots" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExamType" EntityType="Self.ExamType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LatestNews" EntityType="Self.LatestNews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ObjectiveTest" EntityType="Self.ObjectiveTest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuestionType" EntityType="Self.QuestionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Testimonials" EntityType="Self.Testimonials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VideoScore" EntityType="Self.VideoScore" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VideoType" EntityType="Self.VideoType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AnswerOptions_ObjectiveTest" Association="Self.FK_AnswerOptions_ObjectiveTest">
+      <End Role="ObjectiveTest" EntitySet="ObjectiveTest" />
+      <End Role="AnswerOptions" EntitySet="AnswerOptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvailableSeatsForSlots_AvailableDates" Association="Self.FK_AvailableSeatsForSlots_AvailableDates">
+      <End Role="AvailableDates" EntitySet="AvailableDates" />
+      <End Role="AvailableSeatsForSlots" EntitySet="AvailableSeatsForSlots" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvailableSeatsForSlots_ExamSlots" Association="Self.FK_AvailableSeatsForSlots_ExamSlots">
+      <End Role="ExamSlots" EntitySet="ExamSlots" />
+      <End Role="AvailableSeatsForSlots" EntitySet="AvailableSeatsForSlots" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CandidateDetails_AspNetUsers" Association="Self.FK_CandidateDetails_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="CandidateDetails" EntitySet="CandidateDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CandidateExamBookingDetails_CandidateDetails" Association="Self.FK_CandidateExamBookingDetails_CandidateDetails">
+      <End Role="CandidateDetails" EntitySet="CandidateDetails" />
+      <End Role="CandidateExamBookingDetails" EntitySet="CandidateExamBookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CandidateExamBookingDetails_ExamSlots" Association="Self.FK_CandidateExamBookingDetails_ExamSlots">
+      <End Role="ExamSlots" EntitySet="ExamSlots" />
+      <End Role="CandidateExamBookingDetails" EntitySet="CandidateExamBookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CandidateVerification_CandidateDetails" Association="Self.FK_CandidateVerification_CandidateDetails">
+      <End Role="CandidateDetails" EntitySet="CandidateDetails" />
+      <End Role="CandidateVerification" EntitySet="CandidateVerification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CandidateVerification_ExaminerDetails" Association="Self.FK_CandidateVerification_ExaminerDetails">
+      <End Role="ExaminerDetails" EntitySet="ExaminerDetails" />
+      <End Role="CandidateVerification" EntitySet="CandidateVerification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExaminerDetails_AspNetUsers" Association="Self.FK_ExaminerDetails_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="ExaminerDetails" EntitySet="ExaminerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExaminorAvailability_AspNetUsers" Association="Self.FK_ExaminorAvailability_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="ExaminorAvailability" EntitySet="ExaminorAvailability" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExamResults_CandidateDetails" Association="Self.FK_ExamResults_CandidateDetails">
+      <End Role="CandidateDetails" EntitySet="CandidateDetails" />
+      <End Role="ExamResults" EntitySet="ExamResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExamResults_ExamType" Association="Self.FK_ExamResults_ExamType">
+      <End Role="ExamType" EntitySet="ExamType" />
+      <End Role="ExamResults" EntitySet="ExamResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LatestNews_AspNetUsers" Association="Self.FK_LatestNews_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="LatestNews" EntitySet="LatestNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ObjectiveTest_QuestionType" Association="Self.FK_ObjectiveTest_QuestionType">
+      <End Role="QuestionType" EntitySet="QuestionType" />
+      <End Role="ObjectiveTest" EntitySet="ObjectiveTest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Testimonials_CandidateDetails" Association="Self.FK_Testimonials_CandidateDetails">
+      <End Role="CandidateDetails" EntitySet="CandidateDetails" />
+      <End Role="Testimonials" EntitySet="Testimonials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoScore_VideoType" Association="Self.FK_VideoScore_VideoType">
+      <End Role="VideoType" EntitySet="VideoType" />
+      <End Role="VideoScore" EntitySet="VideoScore" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

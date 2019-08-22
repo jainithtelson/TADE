@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" @(ViewBag.ngApp != null ? @Html.Raw(" ng-app=\"" + @ViewBag.ngApp + "\"") : "")>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - The Advanced Drivers Exam</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+   
+    @*<link rel="Stylesheet" href="~/Content/bootstrap.css">
+    <link rel="Stylesheet" href="~/Content/site.css">*@
+   
+    <link rel="Stylesheet" href="~/css/style.css">
+    <link rel="Stylesheet" href="~/css/override_style.css">
+    <link rel="Stylesheet" href="~/css/daterangepicker.css">
+    
+    <link rel="stylesheet" href="~/css/Registration.css" />
+    <link rel="stylesheet" href="~/css/jquery.cookiebar.css" />
+    <script type="text/javascript" src="~/JS/jquery.cookiebar.js"></script>
+    <script type="text/javascript">
+
+  $(document).ready(function(){
+     $.cookieBar();
+  });
+    </script>
+</head>
+<body @(ViewBag.ngController != null ? @Html.Raw(" ng-controller=\"" + @ViewBag.ngController + "\"") : "") oncontextmenu="return false;">
+    <div id="fb-root"></div>
+    <script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                @Html.ActionLink("TJTT", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*<a class="navbar-brand" href="/" style="width:370px !important; background-image:url(/Images/TJTTLogo.png); background-repeat:no-repeat;background-size:100%;"></a>*@
+                @*<input type="button" value="TJTT" class="btn btn-default" style="margin: 0;font-size: 29px !important; color: white; background-color: transparent; height: 100%; padding: 1%; " onclick="window.location.href='@Url.Action("Index", "Home" )';" />*@
+            </div>
+           
+            <div class="navbar-collapse collapse">
+                @*@Html.ActionLink("Donate Us", "DonateUs", "Payment", new { area = "" }, new { @class = "navbar-brand" })*@
+               
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+       
+    </div>
+    <div>
+        <footer>
+
+            <hr />
+            <br />
+            <div class="col-md-12" style="margin-top:10px; color:orange;">
+                &copy;  @DateTime.Now.Year - TJTT
+            </div>
+
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    </body>
+</html>
+
+

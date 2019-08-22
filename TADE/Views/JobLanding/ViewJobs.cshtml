@@ -1,0 +1,70 @@
+﻿@model IEnumerable<TADE.Models.JobDetail>
+
+@{
+    ViewBag.Title = "ViewJobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewJobs</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JobTile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fees)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobDescription)
+        </th>
+     
+      
+        <th>
+            @Html.DisplayNameFor(model => model.NatureOfWork)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.ExpectedDuration)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr onclick="window.location.href='@Url.Action("Details", "JobLanding",new {id=item.JobId })';">
+        <td>
+            @Html.DisplayFor(modelItem => item.JobTile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fees)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobDescription)
+        </td>
+       
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.NatureOfWork)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedDuration)
+        </td>
+       
+        <td>
+           
+            @Html.ActionLink("Details", "Details", new { id=item.JobId }) 
+           
+        </td>
+    </tr>
+}
+
+</table>

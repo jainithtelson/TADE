@@ -1,0 +1,121 @@
+﻿@model TADE.Models.JobDetail
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>JobDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fees)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPerson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NatureOfWork)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NatureOfWork)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobDetailsAttachmentUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobDetailsAttachmentUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpectedDuration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpectedDuration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyDetail.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyDetail.UserId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

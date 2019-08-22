@@ -1,0 +1,85 @@
+﻿@model IEnumerable<TADE.Models.CompanyDetail>
+
+@{
+    ViewBag.Title = "ViewCompanies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewCompanies</h2>
+
+<p>
+   @if (ViewBag.Role == "WorkProvider")
+   {
+    @Html.ActionLink("Post Job", "PostJob")
+   }
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.PostCode)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.ContactPerson)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.NatureofBusiness)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanySize)
+        </th>
+      
+      
+        <th>
+            @Html.DisplayNameFor(model => model.AboutTheCompany)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.PostCode)
+        </td>
+             
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPerson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.NatureofBusiness)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanySize)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutTheCompany)
+        </td>
+     
+        <td>
+            
+            @Html.ActionLink("Details", "CompanyDetails", new { id=item.CompanyId }) 
+           
+        </td>
+    </tr>
+}
+
+</table>

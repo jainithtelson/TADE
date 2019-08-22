@@ -1,0 +1,165 @@
+﻿@model TADE.Models.CompanyDetail
+
+@{
+    ViewBag.Title = "CompanyDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>
+    @Html.ActionLink("Post Job", "PostJob")
+</p>
+<h2>Company Details</h2>
+
+<div>
+   
+   
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressLIne1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressLIne1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressLIne2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressLIne2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressLIne3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressLIne3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPerson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyLogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyLogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NatureofBusiness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NatureofBusiness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanySize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanySize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AboutTheCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AboutTheCompany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailedDescriptionAboutCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetailedDescriptionAboutCompany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CompanyId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
